@@ -8,6 +8,8 @@ import Badge from '@material-ui/core/Badge';
 import { FiLogOut } from 'react-icons/fi';
 import { withCookies } from 'react-cookie';
 
+import '../App.scss';
+
 const useStyles = makeStyles((theme) => ({
   bg: {
     marginRight: theme.spacing(1),
@@ -23,7 +25,21 @@ const Navbar = (props) => {
     props.cookies.remove('current-token');
     window.location.href = '/';
   };
-  return <div></div>;
+  return (
+    <AppBar position='static'>
+      <Toolbar>
+        <Typography variant='h5' className={classes.title}>
+          SNS App
+        </Typography>
+        <Badge className={classes.bg} badgeContent={3} color='secondary'>
+          <NotificationsIcon />
+        </Badge>
+        <button className='signOut' onClick={Logout()}>
+          <FiLogOut />
+        </button>
+      </Toolbar>
+    </AppBar>
+  );
 };
 
 export default withCookies(Navbar);
