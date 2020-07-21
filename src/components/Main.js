@@ -6,7 +6,7 @@ import { BsFillPeopleFill } from 'react-icons/bs';
 
 const Main = () => {
   return (
-    <Grid contaier>
+    <Grid container>
       <Grid item xs={4}>
         <div className='app-profiles'></div>
       </Grid>
