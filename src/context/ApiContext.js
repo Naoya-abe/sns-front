@@ -11,7 +11,7 @@ const ApiContextProvider = (props) => {
   // ユーザのプロフィール情報一覧を取得
   const [profiles, setProfiles] = useState([]);
   // 自身のプロフィールを更新するときに送信する情報
-  const [editedProfile, setEditedProfile] = useState({ id: '', nickName: '' });
+  const [editedProfile, setEditedProfile] = useState({ id: '', nickname: '' });
   // 自身に来ている友達申請一覧を取得
   const [askList, setAskList] = useState([]);
   // 自身に来ている友達申請一覧を取得+自身が出した友達申請一覧を取得
@@ -28,14 +28,14 @@ const ApiContextProvider = (props) => {
         // 自身の情報を取得
         const resmy = await axios.get(
           'http://localhost:8080/api/user/myprofile/',
-          { headers: { Authorizatioin: `Token ${token}` } }
+          { headers: { Authorization: `Token ${token}` } }
         );
         // 友達申請の情報を取得
         const res = await axios.get(
           'http://localhost:8080/api/user/approval/',
           {
             headers: {
-              Authorizatioin: `Token ${token}`,
+              Authorization: `Token ${token}`,
             },
           }
         );
@@ -47,7 +47,7 @@ const ApiContextProvider = (props) => {
         resmy.data[0] &&
           setEditedProfile({
             id: resmy.data[0].id,
-            nickName: resmy.data[0].nickName,
+            nickname: resmy.data[0].nickname,
           });
         // 自身に来ている友達申請一覧を取得
         resmy.data[0] &&
@@ -65,9 +65,9 @@ const ApiContextProvider = (props) => {
     // 他のユーザのプロフィール一覧を取得
     const getProfile = async () => {
       try {
-        const res = axios.get('http://localhost:8080/api/user/profile/', {
+        const res = await axios.get('http://localhost:8080/api/user/profile/', {
           headers: {
-            Authorizatioin: `Token ${token}`,
+            Authorization: `Token ${token}`,
           },
         });
         setProfiles(res.data);
@@ -80,7 +80,7 @@ const ApiContextProvider = (props) => {
       try {
         const res = await axios.get('http://localhost:8080/api/dm/inbox/', {
           headers: {
-            Authorizatioin: `Token ${token}`,
+            Authorization: `Token ${token}`,
           },
         });
         setInbox(res.data);
@@ -98,7 +98,7 @@ const ApiContextProvider = (props) => {
     // FormData()を使うと簡単にデータ送信ができる
     const createData = new FormData();
     // backendのmodelで定義したデータ名と揃える
-    createData.append('nickname', editedProfile.nickName);
+    createData.append('nickname', editedProfile.nickname);
     // cover画像が選択されていれば
     cover.name && createData.append('img', cover, cover.name);
     // post method実行
@@ -114,7 +114,7 @@ const ApiContextProvider = (props) => {
         }
       );
       setProfile(res.data);
-      setEditedProfile({ id: res.data.id, nickName: res.data.nickName });
+      setEditedProfile({ id: res.data.id, nickname: res.data.nickname });
     } catch (err) {
       console.log(err);
     }
@@ -122,7 +122,7 @@ const ApiContextProvider = (props) => {
   // delete methodの実行
   const deleteProfile = async () => {
     try {
-      const res = await axios.delete(
+      await axios.delete(
         `http://localhost:8080/api/user/profile/${profile.id}/`,
         {
           headers: {
@@ -138,7 +138,7 @@ const ApiContextProvider = (props) => {
         })
       );
       setProfile([]);
-      setEditedProfile({ id: '', nickName: '' });
+      setEditedProfile({ id: '', nickname: '' });
       setCover([]);
       setAskList([]);
     } catch (err) {
@@ -148,7 +148,7 @@ const ApiContextProvider = (props) => {
 
   const editProfile = async () => {
     const editData = new FormData();
-    editData.append('nickName', editedProfile.nickName);
+    editData.append('nickname', editedProfile.nickname);
     cover.name && editData.append('img', cover, cover.name);
     try {
       const res = await axios.put(
@@ -157,7 +157,7 @@ const ApiContextProvider = (props) => {
         {
           headers: {
             'Content-Type': 'application/json',
-            Authorizatioin: `Token ${token}`,
+            Authorization: `Token ${token}`,
           },
         }
       );
@@ -175,7 +175,7 @@ const ApiContextProvider = (props) => {
         {
           headers: {
             'Content-Type': 'application/json',
-            Authorizatioin: `Token ${token}`,
+            Authorization: `Token ${token}`,
           },
         }
       );
@@ -193,7 +193,7 @@ const ApiContextProvider = (props) => {
         {
           headers: {
             'Content-Type': 'application/json',
-            Authorizatioin: `Token ${token}`,
+            Authorization: `Token ${token}`,
           },
         }
       );
@@ -210,7 +210,7 @@ const ApiContextProvider = (props) => {
         {
           headers: {
             'Content-Type': 'application/json',
-            Authorizatioin: `Token ${token}`,
+            Authorization: `Token ${token}`,
           },
         }
       );
@@ -236,7 +236,7 @@ const ApiContextProvider = (props) => {
             {
               headers: {
                 'Content-Type': 'application/json',
-                Authorizatioin: `Token ${token}`,
+                Authorization: `Token ${token}`,
               },
             }
           )
@@ -246,7 +246,7 @@ const ApiContextProvider = (props) => {
             {
               headers: {
                 'Content-Type': 'application/json',
-                Authorizatioin: `Token ${token}`,
+                Authorization: `Token ${token}`,
               },
             }
           );

@@ -137,9 +137,7 @@ const Login = (props) => {
           state.credentialsLog,
           { headers: { 'Content-Type': 'application/json' } }
         );
-        console.log(props);
         props.cookies.set('current-token', res.data.token);
-        console.log('aaa');
         res.data.token
           ? (window.location.href = '/profiles')
           : (window.location.href = '/');

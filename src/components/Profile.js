@@ -8,7 +8,6 @@ import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 
 import DefaultImage from '../null.png';
-
 const useStyles = makeStyles((theme) => ({
   button: {
     margin: theme.spacing(1),
@@ -32,8 +31,9 @@ const Profile = ({ profileData, askData }) => {
       ) : (
         <CardMedia style={{ minWidth: 100 }} image={DefaultImage} />
       )}
+
       <CardContent style={{ padding: 5 }}>
-        <Typography variant='h6'>{profileData.nickName}</Typography>
+        <Typography variant='h6'>{profileData.nickname}</Typography>
         <Typography>{profileData.created_on}</Typography>
         {!askData[0] && profile.id ? (
           <Button
