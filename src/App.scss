@@ -10,12 +10,12 @@
   cursor: pointer;
 }
 
-.container{
+.container {
   margin: 40px auto auto;
   max-width: 1200px;
 }
 
-.app-profiles{
+.app-profiles {
   background-color: #292f38;
   width: 25%;
   min-width: 350px;
@@ -23,10 +23,10 @@
   padding: 10px;
   margin: 10px;
   border-radius: 5px;
-  box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
 }
 
-.app-details{
+.app-details {
   background-color: #292f38;
   width: 15%;
   min-width: 270px;
@@ -34,10 +34,10 @@
   padding: 10px;
   margin: 10px 0 30px 45px;
   border-radius: 5px;
-  box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
 }
 
-.app-dms{
+.app-dms {
   background-color: #292f38;
   width: 25%;
   min-width: 380px;
@@ -45,14 +45,14 @@
   padding: 10px;
   margin: 10px;
   border-radius: 5px;
-  box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
 }
 
-.title-ask{
+.title-ask {
   margin-right: 30px;
 }
 
-.badge{
+.badge {
   background-color: transparent;
   color: gray;
   margin-right: 7px;
@@ -61,7 +61,7 @@
   outline: none;
 }
 
-.photo{
+.photo {
   background-color: transparent;
   color: lightgray;
   font-size: 30px;
@@ -70,7 +70,7 @@
   cursor: pointer;
 }
 
-.user{
+.user {
   background-color: transparent;
   color: lightgray;
   margin-left: 10px;
@@ -80,7 +80,7 @@
   cursor: pointer;
 }
 
-.user-invald{
+.user-invald {
   background-color: transparent;
   color: dimgray;
   margin-left: 10px;
@@ -90,10 +90,49 @@
   cursor: none;
 }
 
-.trash{
+.trash {
   background-color: transparent;
   color: lightgray;
   font-size: 24px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+h3 {
+  color: black;
+  font-family: 'Comic Neue', cursive;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.list-item {
+  display: flex;
+  justify-content: space-between;
+  padding-right: 20px;
+
+  h4 {
+    color: lightgray;
+    font-family: 'Comic Neue', cursive;
+  }
+}
+
+.btn-modal {
+  background-color: transparent;
+  color: gray;
+  margin-right: 7px;
+  font-size: 22px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.mail {
+  background-color: transparent;
+  color: lightgray;
+  margin-right: 25px;
+  font-size: 25px;
   border: none;
   outline: none;
   cursor: pointer;

@@ -68,8 +68,7 @@ const ProfileManager = () => {
     const name = event.target.name;
     setEditedProfile({ ...editedProfile, [name]: value });
   };
-  //   TODO:ここがundifinedになる
-  console.log(editedProfile.id);
+
   return (
     <div className={classes.profile}>
       <div className='image-wrapper'>

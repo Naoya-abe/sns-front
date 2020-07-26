@@ -187,16 +187,12 @@ const ApiContextProvider = (props) => {
 
   const sendDMCont = async (uploadDM) => {
     try {
-      const res = await axios.post(
-        `http://localhost:8080/api/dm/message/`,
-        uploadDM,
-        {
-          headers: {
-            'Content-Type': 'application/json',
-            Authorization: `Token ${token}`,
-          },
-        }
-      );
+      await axios.post(`http://localhost:8080/api/dm/message/`, uploadDM, {
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Token ${token}`,
+        },
+      });
     } catch (err) {
       console.log(err);
     }
@@ -205,7 +201,7 @@ const ApiContextProvider = (props) => {
   const changeApprovalRequest = async (uploadDataAsk, ask) => {
     try {
       const res = await axios.put(
-        `http://localhost:8080/api/user/approval/${ask.id}`,
+        `http://localhost:8080/api/user/approval/${ask.id}/`,
         uploadDataAsk,
         {
           headers: {
