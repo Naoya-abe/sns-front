@@ -9,12 +9,12 @@ import { IconButton } from '@material-ui/core';
 
 import nullProfile from '../null.png';
 
-const useStyle = makeStyles((theme) => ({
+const useStyles = makeStyles((theme) => ({
   profile: {
     '& .image-wrapper': {
       textAlign: 'center',
       position: 'relative',
-      '& .button': {
+      '& button': {
         position: 'absolute',
         top: '80%',
         left: '70%',
@@ -45,7 +45,7 @@ const useStyle = makeStyles((theme) => ({
 }));
 
 const ProfileManager = () => {
-  const classes = useStyle();
+  const classes = useStyles();
   const {
     profile,
     editedProfile,
@@ -66,7 +66,7 @@ const ProfileManager = () => {
   const handleInputChange = (event) => {
     const value = event.target.value;
     const name = event.target.name;
-    setEditedProfile({ ...editProfile, [name]: value });
+    setEditedProfile({ ...editedProfile, [name]: value });
   };
   //   TODO:ここがundifinedになる
   console.log(editedProfile.id);
