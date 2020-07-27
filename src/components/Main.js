@@ -34,7 +34,9 @@ const Main = () => {
   return (
     <Grid container>
       <Grid item xs={4}>
-        <div className='app-profiles'>{listProfiles}</div>
+        <div className='app-profiles'>
+          <div className='task-list'>{listProfiles}</div>
+        </div>
       </Grid>
       <Grid item xs={4}>
         <div className='app-details'>
@@ -45,18 +47,20 @@ const Main = () => {
           Approval request list
         </h3>
         <div className='app-details'>
-          <ul>
-            {profile.id &&
-              askList.map((ask) => (
-                <Ask
-                  key={ask.id}
-                  ask={ask}
-                  prof={profiles.filter((item) => {
-                    return item.userPro === ask.askFrom;
-                  })}
-                />
-              ))}
-          </ul>
+          <div className='task-list'>
+            <ul>
+              {profile.id &&
+                askList.map((ask) => (
+                  <Ask
+                    key={ask.id}
+                    ask={ask}
+                    prof={profiles.filter((item) => {
+                      return item.userPro === ask.askFrom;
+                    })}
+                  />
+                ))}
+            </ul>
+          </div>
         </div>
       </Grid>
       <Grid item xs={4}>
@@ -65,18 +69,20 @@ const Main = () => {
           DM Inbox
         </h3>
         <div className='app-dms'>
-          <ul>
-            {profile.id &&
-              inbox.map((dm) => (
-                <InboxDM
-                  key={dm.id}
-                  dm={dm}
-                  prof={profiles.filter((item) => {
-                    return item.userPro === dm.sender;
-                  })}
-                />
-              ))}
-          </ul>
+          <div className='task-list'>
+            <ul>
+              {profile.id &&
+                inbox.map((dm) => (
+                  <InboxDM
+                    key={dm.id}
+                    dm={dm}
+                    prof={profiles.filter((item) => {
+                      return item.userPro === dm.sender;
+                    })}
+                  />
+                ))}
+            </ul>
+          </div>
         </div>
       </Grid>
     </Grid>
